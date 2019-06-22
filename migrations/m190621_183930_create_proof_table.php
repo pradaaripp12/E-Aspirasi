@@ -17,10 +17,10 @@ class m190621_183930_create_proof_table extends Migration
     {
         $this->createTable('{{%proof}}', [
             'id_detail' => $this->primaryKey()->notNull(),
-            'file_path_foto' => $this->string(191),
-            'title_foto' => $this->string(191),
+            'file_path_foto' => $this->string(191)->notNull(),
+            'title_foto' => $this->string(191)->notNull(),
             'keterangan_foto' => $this->string(191),
-            'id_master' => $this->string(25),
+            'id_master' => $this->string(25)->notNull(),
         ]);
         // creates index for column `id_master`
         $this->createIndex(

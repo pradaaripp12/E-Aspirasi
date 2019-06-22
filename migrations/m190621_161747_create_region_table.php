@@ -13,8 +13,8 @@ class m190621_161747_create_region_table extends Migration
     public function safeUp()
     {
         $this->createTable('{{%region}}', [
-            'id_wilayah' => $this->primaryKey(),
-            'nama_wilayah' => $this->string(100)
+            'id_wilayah' => $this->primaryKey()->notNull(),
+            'nama_wilayah' => $this->string(100)->notNull()
         ]);
     }
 

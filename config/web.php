@@ -12,6 +12,7 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'TGu1LK56u6aNZoD3N4W4zrApYoKq8Azv',
@@ -53,6 +54,7 @@ $config = [
         */
     ],
     'params' => $params,
+    
 ];
 
 if (YII_ENV_DEV) {

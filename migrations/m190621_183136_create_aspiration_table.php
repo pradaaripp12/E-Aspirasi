@@ -18,12 +18,12 @@ class m190621_183136_create_aspiration_table extends Migration
     {
         $this->createTable('{{%aspiration}}', [
             'id_master' => $this->string(25)->notNull(),
-            'tanggal' => $this->date(),
-            'id_anggota' => $this->string(25),
-            'id_wilayah' => $this->integer(21),
-            'status' => $this->integer(1),
-            'judul' => $this->string(191),
-            'deskripsi' => $this->string(191),
+            'tanggal' => $this->date()->notNull(),
+            'id_anggota' => $this->string(25)->notNull(),
+            'id_wilayah' => $this->integer(21)->notNull(),
+            'status' => $this->integer(1)->notNull(),
+            'judul' => $this->string(191)->notNull(),
+            'deskripsi' => $this->string(191)->notNull(),
             'tanggapan' => $this->string(191)->null(),
         ]);
 

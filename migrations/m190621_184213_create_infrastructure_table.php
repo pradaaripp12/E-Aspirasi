@@ -17,10 +17,10 @@ class m190621_184213_create_infrastructure_table extends Migration
     {
         $this->createTable('{{%infrastructure}}', [
             'id_master' => $this->string(25)->notNull(),
-            'longtitude' => $this->decimal(10,7),
-            'latitude' => $this->decimal(10,7),
-            'status_infrastruktur' => $this->string(50),
-            'jenis_infrastruktur' => $this->string(50),
+            'longtitude' => $this->decimal(10,7)->notNull(),
+            'latitude' => $this->decimal(10,7)->notNull(),
+            'status_infrastruktur' => $this->string(50)->notNull(),
+            'jenis_infrastruktur' => $this->string(50)->notNull(),
         ]);
         
         $this->addPrimaryKey('id_master_pk','infrastructure','id_master');

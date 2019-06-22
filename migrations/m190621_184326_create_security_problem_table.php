@@ -17,9 +17,9 @@ class m190621_184326_create_security_problem_table extends Migration
     {
         $this->createTable('{{%security_problem}}', [
             'id_master' => $this->string(25)->notNull(),
-            'jenis_kejahatan' => $this->string(191),
-            'longtitude' => $this->decimal(10,7),
-            'latitude' => $this->decimal(10,7),
+            'jenis_kejahatan' => $this->string(191)->notNull(),
+            'longtitude' => $this->decimal(10,7)->notNull(),
+            'latitude' => $this->decimal(10,7)->notNull(),
         ]);
 
         $this->addPrimaryKey('id_master_pk','security_problem','id_master');
