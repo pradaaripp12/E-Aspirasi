@@ -66,4 +66,9 @@ class Member extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Aspiration::className(), ['id_anggota' => 'id_anggota']);
     }
+
+    public function validatePassword($password)
+    {
+        return Yii::$app->getSecurity()->validatePassword($password, $this->password);
+    }
 }
