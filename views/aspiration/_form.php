@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\date\DatePicker;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Aspiration */
@@ -14,7 +16,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_master')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'tanggal')->textInput() ?>
+    <?= $form->field($model, 'tanggal')->widget(DatePicker::className(),[
+        'options' => ['placeholder' => 'Masukkan tanggal aspirasi'],
+        'pluginOptions' => [
+            'autoclose' => true,
+            'format' => 'yyyy-mm-dd'
+        ]
+    ]); ?>
 
     <?= $form->field($model, 'id_anggota')->textInput(['maxlength' => true]) ?>
 

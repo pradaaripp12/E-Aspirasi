@@ -38,9 +38,23 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?= $form->field($model, 'no_hp')->textInput(['maxlength' => true]) ?>
 
-<?= $form->field($model, 'jenis_kelamin')->dropDownList([ 'L' => 'L', 'P' => 'P', ], ['prompt' => '']) ?>
+<?= $form->field($model, 'jenis_kelamin')->dropDownList(
+        [
+            'L' => 'Laki-Laki',
+            'P' => 'Perempuan',
+        ],
+        [
+            'prompt' => 'Pilih jenis kelamin'
+        ]
+    ) ?>
 
-<?= $form->field($model, 'is_admin')->hiddenInput(['value'=>0])->label(false) ?>
+    <?= $form->field($model, 'is_admin')->dropDownList(
+        [
+            '0' => 'Member'
+        ],
+        ['prompt' => 'Pilih status akun']
+    )
+    ?>
 
 <div class="form-group">
     <?= Html::submitButton('Register', ['class' => 'btn btn-success']) ?>

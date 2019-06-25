@@ -22,9 +22,24 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'no_hp')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'jenis_kelamin')->dropDownList([ 'L' => 'L', 'P' => 'P', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'jenis_kelamin')->dropDownList(
+        [
+            'L' => 'Laki-Laki',
+            'P' => 'Perempuan',
+        ],
+        [
+            'prompt' => 'Pilih jenis kelamin'
+        ]
+    ) ?>
 
-    <?= $form->field($model, 'is_admin')->textInput() ?>
+    <?= $form->field($model, 'is_admin')->dropDownList(
+        [
+            '1' => 'Admin',
+            '0' => 'Member'
+        ],
+        ['prompt' => 'Pilih status akun']
+    )
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
