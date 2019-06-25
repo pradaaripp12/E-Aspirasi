@@ -24,8 +24,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'jenis_kelamin')->dropDownList(
         [
-            'L' => 'L',
-            'P' => 'P',
+            'L' => 'Laki-Laki',
+            'P' => 'Perempuan',
         ],
         [
             'prompt' => 'Pilih jenis kelamin'
@@ -34,8 +34,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'is_admin')->dropDownList(
         [
-            '0' => 'Admin',
-            '1' => 'Member'
+            '1' => 'Admin',
+            '0' => 'Member'
         ],
         ['prompt' => 'Pilih status akun']
     )

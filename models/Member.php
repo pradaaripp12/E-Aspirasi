@@ -80,4 +80,10 @@ class Member extends \yii\db\ActiveRecord
     //     }
     //     return $data;
     // }
+    public function beforeSave($insert)
+    {
+        $this->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+
+        return parent::beforeSave($insert);
+    }
 }
