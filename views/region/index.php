@@ -8,12 +8,13 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Regions';
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="region-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
+<div class="row">
+        <?php echo \Yii::$app->view->renderFile('@app/views/layouts/sidebar.php'); ?>
+        <div class="col-lg-8">
+        <h1><?= Html::encode($this->title) ?></h1>
     <p>
         <?= Html::a('Create Region', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
@@ -33,5 +34,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-
+</div>
+</div>
 </div>

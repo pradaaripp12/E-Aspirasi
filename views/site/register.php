@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?= $form->field($model, 'jenis_kelamin')->dropDownList([ 'L' => 'L', 'P' => 'P', ], ['prompt' => '']) ?>
 
-<?= $form->field($model, 'is_admin')->textInput() ?>
+<?= $form->field($model, 'is_admin')->hiddenInput(['value'=>0])->label(false) ?>
 
 <div class="form-group">
     <?= Html::submitButton('Register', ['class' => 'btn btn-success']) ?>
