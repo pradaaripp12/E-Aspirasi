@@ -71,4 +71,13 @@ class Member extends \yii\db\ActiveRecord
     {
         return Yii::$app->getSecurity()->validatePassword($password, $this->password);
     }
+
+    // public static function getIdAnggota()
+    // {
+    //     $model = Member::find()->all();
+    //     foreach ($model as $values) {
+    //         $data[$values->id_anggota] = $values->id_anggota;
+    //     }
+    //     return $data;
+    // }
 }
