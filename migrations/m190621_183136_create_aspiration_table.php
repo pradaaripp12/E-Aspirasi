@@ -17,7 +17,7 @@ class m190621_183136_create_aspiration_table extends Migration
     public function safeUp()
     {
         $this->createTable('{{%aspiration}}', [
-            'id_master' => $this->string(25)->notNull(),
+            'id_master' => $this->primaryKey()->notNull(),
             'tanggal' => $this->date()->notNull(),
             'id_anggota' => $this->string(25)->notNull(),
             'id_wilayah' => $this->integer(21)->notNull(),
@@ -26,8 +26,6 @@ class m190621_183136_create_aspiration_table extends Migration
             'deskripsi' => $this->string(191)->notNull(),
             'tanggapan' => $this->string(191)->null(),
         ]);
-
-        $this->addPrimaryKey('id_master_pk','aspiration','id_master');
 
         // creates index for column `id_anggota`
         $this->createIndex(
