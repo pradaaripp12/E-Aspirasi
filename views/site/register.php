@@ -28,15 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php $form = ActiveForm::begin(); ?>
 
-<?= $form->field($model, 'id_anggota')->textInput(['maxlength' => true]) ?>
+<?= $form->field($model, 'id_anggota')->textInput(['maxlength' => true])->label('Username') ?>
 
 <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 
-<?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
+<?= $form->field($model, 'nama')->textInput(['maxlength' => true])->label('Nama Lengkap') ?>
 
 <?= $form->field($model, 'alamat')->textInput(['maxlength' => true]) ?>
 
-<?= $form->field($model, 'no_hp')->textInput(['maxlength' => true]) ?>
+<?= $form->field($model, 'no_hp')->textInput(['maxlength' => true])->label('Nomer HP') ?>
 
 <?= $form->field($model, 'jenis_kelamin')->dropDownList(
         [
@@ -48,13 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]
     ) ?>
 
-    <?= $form->field($model, 'is_admin')->dropDownList(
-        [
-            '0' => 'Member'
-        ],
-        ['prompt' => 'Pilih status akun']
-    )
-    ?>
+    <?= $form->field($model,'is_admin')->label(false)->hiddenInput(['value' =>'0']);?>
 
 <div class="form-group">
     <?= Html::submitButton('Register', ['class' => 'btn btn-success']) ?>
