@@ -3,7 +3,7 @@
 use kartik\sidenav\SideNav;
 
 ?>
-<div class="col-lg-4">
+<div class="col-lg-3">
         <?php
         $is_admin = Yii::$app->user->identity->is_admin;
 
@@ -15,13 +15,20 @@ use kartik\sidenav\SideNav;
                     [
                         'url' => 'index.php?r=site%2Findex',
                         'label' => 'Home (Admin)',
-                        'icon' => 'home'
+                        'icon' => 'home',
+                        'active' => true
+                    ],
+                    [
+                        'url' => 'index.php?r=member',
+                        'label' => 'Member',
+                        'icon' => 'user'
                     ],
                     [
                         'url' => 'index.php?r=region',
                         'label' => 'Wilayah',
                         'icon' => 'globe'
                     ],
+
                     [
                         'url' => 'index.php?r=site%2Findex',
                         'label' => 'Laporan',
@@ -50,7 +57,7 @@ use kartik\sidenav\SideNav;
                     [
                         'url' => 'index.php?r=site%2Findex',
                         'label' => 'Aspirasi',
-                        'icon' => 'home'
+                        'icon' => 'comment'
                     ],
                     [
                         'label' => 'Help',
