@@ -14,7 +14,7 @@ use kartik\sidenav\SideNav;
                 'items' => [
                     [
                         'url' => 'index.php?r=site%2Findex',
-                        'label' => 'Home (Admin)',
+                        'label' => 'Home ('. Yii::$app->user->identity->nama .')',
                         'icon' => 'home',
                         'active' => true
                     ],
@@ -51,7 +51,7 @@ use kartik\sidenav\SideNav;
                 'items' => [
                     [
                         'url' => 'index.php?r=site%2Findex',
-                        'label' => 'Home (User)',
+                        'label' => 'Home ('. Yii::$app->user->identity->nama .')',
                         'icon' => 'home'
                     ],
                     [
