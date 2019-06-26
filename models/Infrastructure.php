@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "infrastructure".
  *
- * @property string $id_master
+ * @property int $id_master
  * @property string $longtitude
  * @property string $latitude
  * @property string $status_infrastruktur
@@ -32,8 +32,8 @@ class Infrastructure extends \yii\db\ActiveRecord
     {
         return [
             [['id_master', 'longtitude', 'latitude', 'status_infrastruktur', 'jenis_infrastruktur'], 'required'],
+            [['id_master'], 'integer'],
             [['longtitude', 'latitude'], 'number'],
-            [['id_master'], 'string', 'max' => 25],
             [['status_infrastruktur', 'jenis_infrastruktur'], 'string', 'max' => 50],
             [['id_master'], 'unique'],
             [['id_master'], 'exist', 'skipOnError' => true, 'targetClass' => Aspiration::className(), 'targetAttribute' => ['id_master' => 'id_master']],

@@ -20,7 +20,7 @@ class m190621_183930_create_proof_table extends Migration
             'file_path_foto' => $this->string(191)->notNull(),
             'title_foto' => $this->string(191)->notNull(),
             'keterangan_foto' => $this->string(191),
-            'id_master' => $this->string(25)->notNull(),
+            'id_master' => $this->integer(11)->notNull(),
         ]);
         // creates index for column `id_master`
         $this->createIndex(

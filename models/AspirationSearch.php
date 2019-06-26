@@ -17,8 +17,8 @@ class AspirationSearch extends Aspiration
     public function rules()
     {
         return [
-            [['id_master', 'tanggal', 'id_anggota', 'judul', 'deskripsi', 'tanggapan'], 'safe'],
-            [['id_wilayah', 'status'], 'integer'],
+            [['id_master', 'id_wilayah', 'status'], 'integer'],
+            [['tanggal', 'id_anggota', 'judul', 'deskripsi', 'tanggapan'], 'safe'],
         ];
     }
 
@@ -58,13 +58,13 @@ class AspirationSearch extends Aspiration
 
         // grid filtering conditions
         $query->andFilterWhere([
+            'id_master' => $this->id_master,
             'tanggal' => $this->tanggal,
             'id_wilayah' => $this->id_wilayah,
             'status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'id_master', $this->id_master])
-            ->andFilterWhere(['like', 'id_anggota', $this->id_anggota])
+        $query->andFilterWhere(['like', 'id_anggota', $this->id_anggota])
             ->andFilterWhere(['like', 'judul', $this->judul])
             ->andFilterWhere(['like', 'deskripsi', $this->deskripsi])
             ->andFilterWhere(['like', 'tanggapan', $this->tanggapan]);

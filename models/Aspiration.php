@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "aspiration".
  *
- * @property string $id_master
+ * @property int $id_master
  * @property string $tanggal
  * @property string $id_anggota
  * @property int $id_wilayah
@@ -39,12 +39,11 @@ class Aspiration extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_master', 'tanggal', 'id_anggota', 'id_wilayah', 'status', 'judul', 'deskripsi'], 'required'],
+            [['tanggal', 'id_anggota', 'id_wilayah', 'status', 'judul', 'deskripsi'], 'required'],
             [['tanggal'], 'safe'],
             [['id_wilayah', 'status'], 'integer'],
-            [['id_master', 'id_anggota'], 'string', 'max' => 25],
+            [['id_anggota'], 'string', 'max' => 25],
             [['judul', 'deskripsi', 'tanggapan'], 'string', 'max' => 191],
-            [['id_master'], 'unique'],
             [['id_anggota'], 'exist', 'skipOnError' => true, 'targetClass' => Member::className(), 'targetAttribute' => ['id_anggota' => 'id_anggota']],
             [['id_wilayah'], 'exist', 'skipOnError' => true, 'targetClass' => Region::className(), 'targetAttribute' => ['id_wilayah' => 'id_wilayah']],
         ];

@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "service".
  *
- * @property string $id_master
+ * @property int $id_master
  * @property string $dinas
  * @property string $jenis_layanan
  * @property string $review_layanan
@@ -31,7 +31,7 @@ class Service extends \yii\db\ActiveRecord
     {
         return [
             [['id_master', 'dinas', 'jenis_layanan', 'review_layanan'], 'required'],
-            [['id_master'], 'string', 'max' => 25],
+            [['id_master'], 'integer'],
             [['dinas', 'jenis_layanan', 'review_layanan'], 'string', 'max' => 50],
             [['id_master'], 'unique'],
             [['id_master'], 'exist', 'skipOnError' => true, 'targetClass' => Aspiration::className(), 'targetAttribute' => ['id_master' => 'id_master']],

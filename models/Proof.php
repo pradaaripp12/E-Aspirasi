@@ -11,7 +11,7 @@ use Yii;
  * @property string $file_path_foto
  * @property string $title_foto
  * @property string $keterangan_foto
- * @property string $id_master
+ * @property int $id_master
  *
  * @property Aspiration $master
  */
@@ -32,8 +32,8 @@ class Proof extends \yii\db\ActiveRecord
     {
         return [
             [['file_path_foto', 'title_foto', 'id_master'], 'required'],
+            [['id_master'], 'integer'],
             [['file_path_foto', 'title_foto', 'keterangan_foto'], 'string', 'max' => 191],
-            [['id_master'], 'string', 'max' => 25],
             [['id_master'], 'exist', 'skipOnError' => true, 'targetClass' => Aspiration::className(), 'targetAttribute' => ['id_master' => 'id_master']],
         ];
     }

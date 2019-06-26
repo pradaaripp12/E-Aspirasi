@@ -16,7 +16,7 @@ class m190621_184326_create_security_problem_table extends Migration
     public function safeUp()
     {
         $this->createTable('{{%security_problem}}', [
-            'id_master' => $this->string(25)->notNull(),
+            'id_master' => $this->integer(11)->notNull(),
             'jenis_kejahatan' => $this->string(191)->notNull(),
             'longtitude' => $this->decimal(10,7)->notNull(),
             'latitude' => $this->decimal(10,7)->notNull(),

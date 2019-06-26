@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "security_problem".
  *
- * @property string $id_master
+ * @property int $id_master
  * @property string $jenis_kejahatan
  * @property string $longtitude
  * @property string $latitude
@@ -31,8 +31,8 @@ class SecurityProblem extends \yii\db\ActiveRecord
     {
         return [
             [['id_master', 'jenis_kejahatan', 'longtitude', 'latitude'], 'required'],
+            [['id_master'], 'integer'],
             [['longtitude', 'latitude'], 'number'],
-            [['id_master'], 'string', 'max' => 25],
             [['jenis_kejahatan'], 'string', 'max' => 191],
             [['id_master'], 'unique'],
             [['id_master'], 'exist', 'skipOnError' => true, 'targetClass' => Aspiration::className(), 'targetAttribute' => ['id_master' => 'id_master']],

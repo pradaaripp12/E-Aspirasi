@@ -12,11 +12,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_anggota')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'id_anggota')->textInput(['maxlength' => true])->label('Username') ?>
 
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'nama')->textInput(['maxlength' => true])->label('Nama Lengkap') ?>
 
     <?= $form->field($model, 'alamat')->textInput(['maxlength' => true]) ?>
 

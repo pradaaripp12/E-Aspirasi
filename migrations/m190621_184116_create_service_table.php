@@ -16,7 +16,7 @@ class m190621_184116_create_service_table extends Migration
     public function safeUp()
     {
         $this->createTable('{{%service}}', [
-            'id_master' => $this->string(25)->notNull(),
+            'id_master' => $this->integer(11)->notNull(),
             'dinas' => $this->string(50)->notNull(),
             'jenis_layanan' => $this->string(50)->notNull(),
             'review_layanan' => $this->string(50)->notNull(),

@@ -16,7 +16,7 @@ class m190621_184213_create_infrastructure_table extends Migration
     public function safeUp()
     {
         $this->createTable('{{%infrastructure}}', [
-            'id_master' => $this->string(25)->notNull(),
+            'id_master' => $this->integer(11)->notNull(),
             'longtitude' => $this->decimal(10,7)->notNull(),
             'latitude' => $this->decimal(10,7)->notNull(),
             'status_infrastruktur' => $this->string(50)->notNull(),
