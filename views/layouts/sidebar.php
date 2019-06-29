@@ -1,7 +1,11 @@
 <?php
 
 use kartik\sidenav\SideNav;
+use yii\helpers\Url;
+use yii\helpers\VarDumper;
 
+$item = Yii::$app->controller->id ;
+VarDumper::dump($item);
 ?>
 <div class="col-lg-3">
         <?php
@@ -13,24 +17,26 @@ use kartik\sidenav\SideNav;
                 'heading' => 'Options',
                 'items' => [
                     [
-                        'url' => 'index.php?r=site%2Findex',
+                        'url' => Url::toRoute('site/index'),
                         'label' => 'Home ('. Yii::$app->user->identity->nama .')',
                         'icon' => 'home',
-                        'active' => true
+                        'active' => $item == 'site'
                     ],
                     [
-                        'url' => 'index.php?r=member',
+                        'url' => Url::toRoute('/member'),
                         'label' => 'Member',
-                        'icon' => 'user'
+                        'icon' => 'user',
+                        'active' => $item == 'member'
                     ],
                     [
-                        'url' => 'index.php?r=region',
+                        'url' => Url::toRoute('/region'),
                         'label' => 'Wilayah',
-                        'icon' => 'globe'
+                        'icon' => 'globe',
+                        'active' => $item == 'region'
                     ],
 
                     [
-                        'url' => 'index.php?r=site%2Findex',
+                        'url' => Url::toRoute('site/index'),
                         'label' => 'Laporan',
                         'icon' => 'tasks'
                     ],
@@ -56,8 +62,19 @@ use kartik\sidenav\SideNav;
                     ],
                     [
                         'url' => 'index.php?r=site%2Findex',
-                        'label' => 'Aspirasi',
-                        'icon' => 'comment'
+                        'label' => 'Laporkan Kerusakan',
+                        'icon' => 'tasks'
+                    ],
+                    [
+                        'url' => 'index.php?r=site%2Findex',
+                        'label' => 'Laporkan Kejahatan',
+                        'icon' => 'tasks'
+                    ],
+                    
+                    [
+                        'url' => 'index.php?r=site%2Findex',
+                        'label' => 'Beri Nilai Pelayanan',
+                        'icon' => 'star'
                     ],
                     [
                         'label' => 'Help',
