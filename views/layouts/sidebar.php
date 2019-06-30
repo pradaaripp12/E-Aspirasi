@@ -73,7 +73,7 @@ $this->params['breadcrumbs'][] = ['label' => $params, 'url' => ['index']];
                         'active' => $curentpage == 'site'
                     ],
                     [
-                        'url' => Url::toRoute('/aspiration'),
+                        'url' => Url::toRoute('/aspiration/create'),
                         'label' => 'Laporkan Kerusakan',
                         'icon' => 'tasks'
                     ],

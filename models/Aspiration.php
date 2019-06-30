@@ -57,8 +57,8 @@ class Aspiration extends \yii\db\ActiveRecord
         return [
             'id_master' => 'Id Master',
             'tanggal' => 'Tanggal',
-            'id_anggota' => 'Id Anggota',
-            'id_wilayah' => 'Id Wilayah',
+            'id_anggota' => 'Username',
+            'id_wilayah' => 'Kecamatan',
             'status' => 'Status',
             'judul' => 'Judul',
             'deskripsi' => 'Deskripsi',
