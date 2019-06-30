@@ -3,10 +3,20 @@
 use kartik\sidenav\SideNav;
 use yii\helpers\Url;
 use yii\helpers\VarDumper;
+use yii\widgets\Breadcrumbs;
+use kartik\widgets\Alert;
 
 $item = Yii::$app->controller->id ;
-VarDumper::dump($item);
+
+$params = ucfirst($item);
+// VarDumper::dump($params);
+// $this->params['breadcrumbs'][] = $params;
+echo Breadcrumbs::widget([
+    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+]);
+$this->params['breadcrumbs'][] = ['label' => $params, 'url' => ['index']];
 ?>
+
 <div class="col-lg-3">
         <?php
         $is_admin = Yii::$app->user->identity->is_admin;
@@ -14,7 +24,7 @@ VarDumper::dump($item);
         if ($is_admin) {
             echo SideNav::widget([
                 'type' => SideNav::TYPE_DEFAULT,
-                'heading' => 'Options',
+                'heading' => 'Dashboard',
                 'items' => [
                     [
                         'url' => Url::toRoute('site/index'),

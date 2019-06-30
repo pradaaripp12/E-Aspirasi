@@ -1,13 +1,20 @@
+
 <?php
+
+use yii\widgets\Breadcrumbs;
+use kartik\widgets\Alert;
+use yii\helpers\VarDumper;
 
 /* @var $this yii\web\View */
 $this->title = 'E-Aspirasi';
+
 ?>
 <div class="site-index">
     
     <div class="body-content">
-
+        
         <div class="row">
+            
             <?php echo \Yii::$app->view->renderFile('@app/views/layouts/sidebar.php'); ?>
             <div class="col-lg-8">
                 <?php
