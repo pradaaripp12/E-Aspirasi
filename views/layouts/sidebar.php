@@ -10,7 +10,7 @@ use app\models\Aspiration;
 $curentpage = Yii::$app->controller->id ;
 
 $params = ucfirst($curentpage);
-VarDumper::dump($params);
+// VarDumper::dump($params);
 // $this->params['breadcrumbs'][] = $params;
 echo Breadcrumbs::widget([
     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
