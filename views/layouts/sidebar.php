@@ -5,11 +5,12 @@ use yii\helpers\Url;
 use yii\helpers\VarDumper;
 use yii\widgets\Breadcrumbs;
 use kartik\widgets\Alert;
+use app\models\Aspiration;
 
-$item = Yii::$app->controller->id ;
+$curentpage = Yii::$app->controller->id ;
 
-$params = ucfirst($item);
-// VarDumper::dump($params);
+$params = ucfirst($curentpage);
+VarDumper::dump($params);
 // $this->params['breadcrumbs'][] = $params;
 echo Breadcrumbs::widget([
     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -30,19 +31,19 @@ $this->params['breadcrumbs'][] = ['label' => $params, 'url' => ['index']];
                         'url' => Url::toRoute('site/index'),
                         'label' => 'Home ('. Yii::$app->user->identity->nama .')',
                         'icon' => 'home',
-                        'active' => $item == 'site'
+                        'active' => $curentpage == 'site'
                     ],
                     [
                         'url' => Url::toRoute('/member'),
                         'label' => 'Member',
                         'icon' => 'user',
-                        'active' => $item == 'member'
+                        'active' => $curentpage == 'member'
                     ],
                     [
                         'url' => Url::toRoute('/region'),
                         'label' => 'Wilayah',
                         'icon' => 'globe',
-                        'active' => $item == 'region'
+                        'active' => $curentpage == 'region'
                     ],
 
                     [
@@ -66,17 +67,18 @@ $this->params['breadcrumbs'][] = ['label' => $params, 'url' => ['index']];
                 'heading' => 'Options',
                 'items' => [
                     [
-                        'url' => 'index.php?r=site%2Findex',
+                        'url' => Url::toRoute('site/index'),
                         'label' => 'Home ('. Yii::$app->user->identity->nama .')',
-                        'icon' => 'home'
+                        'icon' => 'home',
+                        'active' => $curentpage == 'site'
                     ],
                     [
-                        'url' => 'index.php?r=site%2Findex',
+                        'url' => Url::toRoute('/aspiration'),
                         'label' => 'Laporkan Kerusakan',
                         'icon' => 'tasks'
                     ],
                     [
-                        'url' => 'index.php?r=site%2Findex',
+                        'url' => Url::toRoute('/security-problem'),
                         'label' => 'Laporkan Kejahatan',
                         'icon' => 'tasks'
                     ],

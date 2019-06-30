@@ -28,16 +28,15 @@ $this->title = 'Members';
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id_anggota',
-            'password',
+            // 'password',
             'nama',
             'alamat',
-            'no_hp',
+            // 'no_hp',
             //'jenis_kelamin',
-            //'is_admin',
+            'is_admin',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn']
         ],
     ]); ?>
         </div>

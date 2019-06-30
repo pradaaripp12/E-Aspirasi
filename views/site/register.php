@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $form->field($model,'is_admin')->label(false)->hiddenInput(['value' =>'0']);?>
 
 <div class="form-group">
-    <?= Html::submitButton('Register', ['class' => 'btn btn-success']) ?>
+    <?= Html::submitButton('Register', ['class' => 'btn btn-primary']) ?>
 </div>
 
 <?php ActiveForm::end(); ?>
