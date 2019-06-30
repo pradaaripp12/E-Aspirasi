@@ -11,28 +11,26 @@ $this->title = 'Register';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-register">
-    <!-- <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p> -->
+    <p>Please fill out the following fields to register:</p>
 
     <?php $form = ActiveForm::begin([
         'id' => 'register-form',
         'layout' => 'horizontal',
         'fieldConfig' => [
-            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-            'labelOptions' => ['class' => 'col-lg-1 control-label'],
+            'template' => "{label}\n<div class=\"col-lg-4\">{input}</div>{error}",
+            'labelOptions' => ['class' => 'col-lg-2 control-label', 'style' => 'text-align:left; width:12%;'],
         ],
     ]); ?>
 
 <div class="member-form">
 
-<?php $form = ActiveForm::begin(); ?>
+<?= $form->field($model, 'nama')->textInput(['maxlength' => true])->label('Nama Lengkap') ?>
 
 <?= $form->field($model, 'id_anggota')->textInput(['maxlength' => true])->label('Username') ?>
 
 <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
-
-<?= $form->field($model, 'nama')->textInput(['maxlength' => true])->label('Nama Lengkap') ?>
 
 <?= $form->field($model, 'alamat')->textInput(['maxlength' => true]) ?>
 
@@ -47,11 +45,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'prompt' => 'Pilih jenis kelamin'
         ]
     ) ?>
+    
 
     <?= $form->field($model,'is_admin')->label(false)->hiddenInput(['value' =>'0']);?>
 
-<div class="form-group">
-    <?= Html::submitButton('Register', ['class' => 'btn btn-primary']) ?>
+<div class="form-group" style="width:45%;">
+    <?= Html::submitButton('Register', ['class' => 'btn btn-primary','style' => 'float:right;']) ?>
 </div>
 
 <?php ActiveForm::end(); ?>
