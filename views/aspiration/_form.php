@@ -58,7 +58,13 @@ $sec_model = new SecurityProblem;
                 
                 <?= $form->field($inf_model, 'longtitude')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($inf_model, 'latitude')->textInput(['maxlength' => true]) ?>
-                <?= $form->field($inf_model, 'jenis_infrastruktur')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($inf_model, 'jenis_infrastruktur')->dropDownList([
+                 'jalan' => 'Jalan',
+                 'jembatan' => 'Jembatan'
+    ],
+    [
+        'prompt' => 'Pilih jenis infrastruktur'
+    ]) ?>
                 <?= $form->field($inf_model, 'status_infrastruktur')->textInput(['maxlength' => true]) ?>
             </div>
 

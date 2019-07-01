@@ -30,7 +30,7 @@ class Service extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_master', 'dinas', 'jenis_layanan', 'review_layanan'], 'required'],
+            // [['id_master', 'dinas', 'jenis_layanan', 'review_layanan'], 'required'],
             [['id_master'], 'integer'],
             [['dinas', 'jenis_layanan', 'review_layanan'], 'string', 'max' => 50],
             [['id_master'], 'unique'],

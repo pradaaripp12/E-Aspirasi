@@ -31,7 +31,7 @@ class Infrastructure extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_master', 'longtitude', 'latitude', 'status_infrastruktur', 'jenis_infrastruktur'], 'required'],
+            // [['id_master', 'longtitude', 'latitude', 'status_infrastruktur', 'jenis_infrastruktur'], 'required'],
             [['id_master'], 'integer'],
             [['longtitude', 'latitude'], 'number'],
             [['status_infrastruktur', 'jenis_infrastruktur'], 'string', 'max' => 50],

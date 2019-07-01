@@ -30,7 +30,7 @@ class SecurityProblem extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_master', 'jenis_kejahatan', 'longtitude', 'latitude'], 'required'],
+            // [['id_master', 'jenis_kejahatan', 'longtitude', 'latitude'], 'required'],
             [['id_master'], 'integer'],
             [['longtitude', 'latitude'], 'number'],
             [['jenis_kejahatan'], 'string', 'max' => 191],

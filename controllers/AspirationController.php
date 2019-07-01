@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Aspiration;
+use app\models\Infrastructure;
+use app\models\SecurityProblem;
 use app\models\AspirationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -66,7 +68,25 @@ class AspirationController extends Controller
     {
         $model = new Aspiration();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $request = Yii::$app->request->post();
+
+        if ($model->load($request) && $model->save()) {
+            switch ($request['DynamicModel']['jenis_aspirasi']) {
+                case 'infrastruktur':
+                    $inf_model = new Infrastructure();
+
+                    $request['Infrastructure']['id_master'] = $model->id_master;
+                    $inf_model->load($request);
+                    $inf_model->save();
+                break;
+                case 'kejahatan':
+                $sec_model = new SecurityProblem();
+
+                $request['SecurityProblem']['id_master'] = $model->id_master;
+                $sec_model->load($request);
+                $sec_model->save();
+            break;
+            }
             return $this->redirect(['view', 'id' => $model->id_master]);
         }
 
