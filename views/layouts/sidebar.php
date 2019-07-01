@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = ['label' => $params, 'url' => ['index']];
                     ],
 
                     [
-                        'url' => Url::toRoute('site/index'),
+                        'url' => Url::toRoute('/aspiration/index'),
                         'label' => 'Laporan',
                         'icon' => 'tasks'
                     ],
@@ -78,12 +78,12 @@ $this->params['breadcrumbs'][] = ['label' => $params, 'url' => ['index']];
                         'icon' => 'tasks'
                     ],
                     [
-                        'url' => Url::toRoute('/create'),
+                        'url' => Url::toRoute('infrastructure/index'),
                         'label' => 'Laporan Kerusakan',
                         'icon' => 'tasks'
                     ],
                     [
-                        'url' => Url::toRoute('/security-problem/create'),
+                        'url' => Url::toRoute('/security-problem/index'),
                         'label' => 'Laporan Kejahatan',
                         'icon' => 'tasks'
                     ],

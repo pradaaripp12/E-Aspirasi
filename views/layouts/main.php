@@ -22,6 +22,13 @@ AppAsset::register($this);
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+
+    <style>
+        #map {
+        height: 100px;
+        width: 100%;
+      }
+    </style>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -94,5 +101,33 @@ AppAsset::register($this);
             })
         })
     </script>
+
+<script>
+      var map;
+      function initMap() {
+          var center = {lat: -7.5591225, lng: 110.7837924};
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: center,
+          zoom: 13
+        });
+
+        var marker = new google.maps.Marker({
+            position: center,
+            map: map,
+            title: 'Set Location'
+        });
+
+        google.maps.event.addListener(map, 'center_changed', function () {
+            var center = map.getCenter();
+                marker.setPosition(center)
+                $("#infrastructure-longtitude").val(center.lng())
+                $("#infrastructure-latitude").val(center.lat())
+                $("#securityproblem-longtitude").val(center.lng())
+                $("#securityproblem-latitude").val(center.lat())
+        })
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkERXTRahQ20HpM8bx3IVjShrjt41I6QY&callback=initMap"
+    async defer></script>
 </html>
 <?php $this->endPage() ?>

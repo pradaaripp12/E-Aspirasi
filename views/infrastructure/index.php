@@ -8,9 +8,13 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Infrastructures';
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
+
 <div class="infrastructure-index">
+<div class="row">
+        <?php echo \Yii::$app->view->renderFile('@app/views/layouts/sidebar.php'); ?>
+        <div class="col-lg-8">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -36,5 +40,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-
+</div>
+</div>
 </div>

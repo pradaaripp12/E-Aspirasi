@@ -8,12 +8,14 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Security Problems';
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
+
 <div class="security-problem-index">
-
+<div class="row">
+        <?php echo \Yii::$app->view->renderFile('@app/views/layouts/sidebar.php'); ?>
+        <div class="col-lg-8">
     <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
         <?= Html::a('Create Security Problem', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
@@ -34,6 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-
-
+</div>
+</div>
 </div>
