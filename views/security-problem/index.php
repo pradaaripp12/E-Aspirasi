@@ -7,19 +7,28 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\SecurityProblemSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Security Problems';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Laporan Kejahatan';
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="security-problem-index">
+    <div class="body-content">
+        
+        <div class="row">
+        <?php echo \Yii::$app->view->renderFile('@app/views/layouts/sidebar.php'); ?>
+            <div class="col-lg-8">
+                <h1><?= Html::encode($this->title) ?></h1>
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
+                
+            </div>
+        </div>
+    </div>
+    
+    <!-- <p>
         <?= Html::a('Create Security Problem', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+    -->
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,

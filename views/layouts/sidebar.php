@@ -78,12 +78,12 @@ $this->params['breadcrumbs'][] = ['label' => $params, 'url' => ['index']];
                         'icon' => 'tasks'
                     ],
                     [
-                        'url' => Url::toRoute('/create'),
+                        'url' => Url::toRoute('/infrastructure/'),
                         'label' => 'Laporan Kerusakan',
                         'icon' => 'tasks'
                     ],
                     [
-                        'url' => Url::toRoute('/security-problem/create'),
+                        'url' => Url::toRoute('/security-problem/'),
                         'label' => 'Laporan Kejahatan',
                         'icon' => 'tasks'
                     ],
