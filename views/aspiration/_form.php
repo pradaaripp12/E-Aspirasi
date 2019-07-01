@@ -31,6 +31,7 @@ $sec_model = new SecurityProblem;
         'prompt' => 'Pilih jenis aspirasi'
     ]) ?>
 
+    <div id="galih" style='display:none'>
     <?= $form->field($model, 'id_anggota')->label(false)->hiddenInput(['value' => Yii::$app->user->identity->id_anggota]) ?>
 
 
@@ -78,6 +79,7 @@ $sec_model = new SecurityProblem;
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    </div>
     </div>
 
     <?php ActiveForm::end(); ?>

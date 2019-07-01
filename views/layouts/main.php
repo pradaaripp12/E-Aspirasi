@@ -81,6 +81,12 @@ AppAsset::register($this);
         $(document).ready(() => {
             $("#dynamicmodel-jenis_aspirasi").on('change', function() {
                 var jenis = $(this).val();
+                if (jenis!=""){
+                    $('#jenis').show();
+                }
+                else{
+                    $('#jenis').hide();
+                }
                 $('.hidden-form').hide();
                 if (jenis) {
                     $('#' + jenis).show();
