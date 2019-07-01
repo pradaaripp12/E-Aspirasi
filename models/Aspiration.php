@@ -57,8 +57,8 @@ class Aspiration extends \yii\db\ActiveRecord
         return [
             'id_master' => 'Id Master',
             'tanggal' => 'Tanggal',
-            'id_anggota' => 'Username',
-            'id_wilayah' => 'Kecamatan',
+            'id_anggota' => 'Id Anggota',
+            'id_wilayah' => 'Id Wilayah',
             'status' => 'Status',
             'judul' => 'Judul',
             'deskripsi' => 'Deskripsi',
@@ -112,5 +112,14 @@ class Aspiration extends \yii\db\ActiveRecord
     public function getService()
     {
         return $this->hasOne(Service::className(), ['id_master' => 'id_master']);
+    }
+
+    public static function getLokasi()
+    {
+        $model = Region::find()->all();
+        foreach ($model as $values) {
+            $data[$values->id_wilayah] = $values->nama_wilayah;
+        }
+        return $data;
     }
 }

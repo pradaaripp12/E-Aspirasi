@@ -77,5 +77,16 @@ AppAsset::register($this);
 
 <?php $this->endBody() ?>
 </body>
+<script>
+        $(document).ready(() => {
+            $("#dynamicmodel-jenis_aspirasi").on('change', function() {
+                var jenis = $(this).val();
+                $('.hidden-form').hide();
+                if (jenis) {
+                    $('#' + jenis).show();
+                }
+            })
+        })
+    </script>
 </html>
 <?php $this->endPage() ?>

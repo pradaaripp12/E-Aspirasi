@@ -10,7 +10,7 @@ use app\models\Aspiration;
 $curentpage = Yii::$app->controller->id ;
 
 $params = ucfirst($curentpage);
-VarDumper::dump($params);
+// VarDumper::dump($params);
 // $this->params['breadcrumbs'][] = $params;
 echo Breadcrumbs::widget([
     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -74,17 +74,22 @@ $this->params['breadcrumbs'][] = ['label' => $params, 'url' => ['index']];
                     ],
                     [
                         'url' => Url::toRoute('/aspiration/create'),
+                        'label' => 'Tambahkan Aspirasi',
+                        'icon' => 'tasks'
+                    ],
+                    [
+                        'url' => Url::toRoute('/create'),
                         'label' => 'Laporkan Kerusakan',
                         'icon' => 'tasks'
                     ],
                     [
-                        'url' => Url::toRoute('/security-problem'),
+                        'url' => Url::toRoute('/security-problem/create'),
                         'label' => 'Laporkan Kejahatan',
                         'icon' => 'tasks'
                     ],
                     
                     [
-                        'url' => 'index.php?r=site%2Findex',
+                        'url' => Url::toRoute('/service/create'),
                         'label' => 'Beri Nilai Pelayanan',
                         'icon' => 'star'
                     ],
