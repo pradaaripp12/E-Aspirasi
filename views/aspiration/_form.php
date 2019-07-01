@@ -7,6 +7,7 @@ use kartik\date\DatePicker;
 use app\models\Aspiration;
 use app\models\Infrastructure;
 use app\models\SecurityProblem;
+use app\models\Proof;
 use app\models\Service;
 
 /* @var $this yii\web\View */
@@ -18,75 +19,26 @@ $dynamic_model->addRule('jenis_aspirasi', 'required');
 
 $inf_model = new Infrastructure;
 $sec_model = new SecurityProblem;
+$proof_model = new Proof;
 ?>
 
 <div class="aspiration-form">
 
-    <?php $form = ActiveForm::begin(); ?>
-<<<<<<< HEAD
-    <?= $form->field($dynamic_model, 'jenis_aspirasi')->dropDownList([
-        'infrastruktur' => 'Infrastruktur',
-        'kejahatan' => 'Kejahatan'
-    ],
-    [
-        'prompt' => 'Pilih jenis aspirasi'
-    ]) ?>
-
-    <div id="jenis" style='display:none'>
-    <?= $form->field($model, 'id_anggota')->label(false)->hiddenInput(['value' => Yii::$app->user->identity->id_anggota]) ?>
-
-
-    <?= $form->field($model, 'judul')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'tanggal')->widget(DatePicker::className(), [
-        'options' => ['placeholder' => 'Masukkan tanggal aspirasi'],
-        'pluginOptions' => [
-            'autoclose' => true,
-            'format' => 'yyyy-mm-dd'
+    <?php $form = ActiveForm::begin([
+        'options' => [
+            'enctype' => 'multipart/form-data'
         ]
     ]); ?>
-
-    <?= $form->field($model, 'id_wilayah')->label('Lokasi')->dropDownList(
-        Aspiration::getLokasi(),
-=======
     <?= $form->field($dynamic_model, 'jenis_aspirasi')->dropDownList(
         [
             'infrastruktur' => 'Infrastruktur',
             'kejahatan' => 'Kejahatan'
         ],
->>>>>>> cffb8897bae5cdd63b8fd90e52435c6cbb583b71
         [
             'prompt' => 'Pilih jenis aspirasi'
         ]
     ) ?>
 
-<<<<<<< HEAD
-    <?= $form->field($model, 'status')->label(false)->hiddenInput(['value' => '1']) ?>
-
-    <?= $form->field($model, 'tanggapan')->label(false)->hiddenInput() ?>
-    <div id="map">
-            </div><br>
-            <div id="infrastruktur" class="hidden-form" style="display:none">
-            <?= $form->field($inf_model, 'latitude')->textInput(['class' => 'form-control class-content-title_series', 'disabled' => true]) ?>
-                <?= $form->field($inf_model, 'longtitude')->textInput(['class' => 'form-control class-content-title_series', 'disabled' => true]) ?>
-                <?= $form->field($inf_model, 'jenis_infrastruktur')->dropDownList([
-                 'jalan' => 'Jalan',
-                 'jembatan' => 'Jembatan'
-    ],
-    [
-        'prompt' => 'Pilih jenis infrastruktur'
-    ]) ?>
-                <?= $form->field($inf_model, 'status_infrastruktur')->textInput(['maxlength' => true]) ?>
-            </div>
-
-            <div id="kejahatan" class="hidden-form" style="display:none">
-            <?= $form->field($sec_model, 'jenis_kejahatan')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($sec_model, 'latitude')->textInput(['class' => 'form-control class-content-title_series', 'disabled' => true]) ?>
-            <?= $form->field($sec_model, 'longtitude')->textInput(['class' => 'form-control class-content-title_series', 'disabled' => true]) ?>
-            </div>
-
-
-            <?= $form->field($model, 'deskripsi')->textArea() ?>
-=======
     <div id="jenis" style='display:none'>
         <?= $form->field($model, 'id_anggota')->label(false)->hiddenInput(['value' => Yii::$app->user->identity->id_anggota]) ?>
 
@@ -103,19 +55,19 @@ $sec_model = new SecurityProblem;
         <?= $form->field($model, 'id_wilayah')->label('Lokasi')->dropDownList(
             Aspiration::getLokasi(),
             [
-                'prompt' => 'Pilih lokasi kejadian'
+                'prompt' => 'Pilih lokasi'
             ]
         ) ?>
 
         <?= $form->field($model, 'status')->label(false)->hiddenInput(['value' => '1']) ?>
 
         <?= $form->field($model, 'tanggapan')->label(false)->hiddenInput() ?>
-
+        <div id="map">
+        </div><br>
         <div id="infrastruktur" class="hidden-form" style="display:none">
-
-            <?= $form->field($inf_model, 'longtitude')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($inf_model, 'latitude')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($inf_model, 'jenis_infrastruktur')->dropDownList(
+            <?= $form->field($inf_model, 'latitude', ['options' => ['style' => 'width:49%;float:left;']])->textInput() ?>
+            <?= $form->field($inf_model, 'longtitude',['options' => ['style' => 'width:49%;float:right;']])->textInput() ?>
+            <?= $form->field($inf_model, 'jenis_infrastruktur', ['options' => ['style' => 'width:49%;float:left;']])->dropDownList(
                 [
                     'jalan' => 'Jalan Raya',
                     'gedung' => 'Gedung Pertemuan',
@@ -126,34 +78,40 @@ $sec_model = new SecurityProblem;
                     'prompt' => 'Pilih jenis infrastruktur'
                 ]
             ) ?>
-            <?= $form->field($inf_model, 'status_infrastruktur')->radioList([
-                'Baik' => 'Baik',
-                'Perlu Perbaikan' => 'Perlu perbaikan',
-                'Rusak' => 'Rusak',
-                'Rusak Parah' => 'Rusak Parah',
-                'Tidak Dapat Digunakan' => 'Tidak Dapat Digunakan']
+            <?= $form->field($inf_model, 'status_infrastruktur', ['options' => ['style' => 'width:49%;float:right;']])->dropDownList(
+                [
+                    'Baik' => 'Baik',
+                    'Perlu Perbaikan' => 'Perlu perbaikan',
+                    'Rusak' => 'Rusak',
+                    'Rusak Parah' => 'Rusak Parah',
+                    'Tidak Dapat Digunakan' => 'Tidak Dapat Digunakan'
+                ],
+                [
+                    'prompt' => 'Pilih status infrastruktur'
+                ]
             ); ?>
         </div>
-
         <div id="kejahatan" class="hidden-form" style="display:none">
-            <?= $form->field($sec_model, 'jenis_kejahatan')->dropDownList(
+            <?= $form->field($sec_model, 'jenis_kejahatan', ['options' => ['style' => 'width:30%;float:left;margin-right:15px;']])->dropDownList(
                 [
-                    'pembunuhan' => 'Pembunuhan',
-                    'penganiayaan' => 'Penganiayaan',
-                    'pencurian' => 'Pencurian',
-                    'seksual' => 'Kejahatan Seksual',
-                    'begal' => 'Begal'
+                    'Pembunuhan' => 'Pembunuhan',
+                    'Penganiayaan' => 'Penganiayaan',
+                    'Pencurian' => 'Pencurian',
+                    'Kejahatan Seksual' => 'Kejahatan Seksual',
+                    'Begal' => 'Begal'
                 ],
                 [
                     'prompt' => 'Pilih jenis kejahatan'
                 ]
             ) ?>
-            <?= $form->field($sec_model, 'longtitude')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($sec_model, 'latitude')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($sec_model, 'latitude', ['options' => ['style' => 'width:30%;float:left;margin-left:25px;;margin-right:15px;']])->textInput() ?>
+            <?= $form->field($sec_model, 'longtitude', ['options' => ['style' => 'width:30%;float:right;margin-left:15px;']])->textInput() ?>
         </div>
 
+
         <?= $form->field($model, 'deskripsi')->textArea() ?>
->>>>>>> cffb8897bae5cdd63b8fd90e52435c6cbb583b71
+        <?= $form->field($proof_model, 'file_path_foto')->label('Bukti Foto')->fileInput() ?>
+        <?= $form->field($proof_model, 'keterangan_foto')->label('Keterangan Foto')->textarea() ?>
 
         <div class="form-group">
             <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

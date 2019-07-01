@@ -10,6 +10,8 @@ use app\models\AspirationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\Proof;
+use yii\web\UploadedFile;
 
 /**
  * AspirationController implements the CRUD actions for Aspiration model.
@@ -74,18 +76,22 @@ class AspirationController extends Controller
             switch ($request['DynamicModel']['jenis_aspirasi']) {
                 case 'infrastruktur':
                     $inf_model = new Infrastructure();
-
                     $request['Infrastructure']['id_master'] = $model->id_master;
                     $inf_model->load($request);
                     $inf_model->save();
-                break;
-                case 'kejahatan':
-                $sec_model = new SecurityProblem();
 
-                $request['SecurityProblem']['id_master'] = $model->id_master;
-                $sec_model->load($request);
-                $sec_model->save();
-            break;
+                    $proof_model = new Proof();
+                    $request['Proof']['id_master'] = $model->id_master;
+                    $proof_model->load($request);
+                    $proof_model->save();
+                    break;
+                case 'kejahatan':
+                    $sec_model = new SecurityProblem();
+
+                    $request['SecurityProblem']['id_master'] = $model->id_master;
+                    $sec_model->load($request);
+                    $sec_model->save();
+                    break;
             }
             return $this->redirect(['view', 'id' => $model->id_master]);
         }
