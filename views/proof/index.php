@@ -27,7 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id_detail',
-            'file_path_foto',
+            [
+                'label' => 'Bukti',
+                'attribute' => 'file_path_foto',
+                'format' => 'html',
+                'value' => function($model){
+                    return yii\bootstrap\Html::img($model->file_path_foto,['width' => '200']);
+                }
+            ],
             'title_foto',
             'keterangan_foto',
             'id_master',

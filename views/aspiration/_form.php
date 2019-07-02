@@ -59,7 +59,7 @@ $proof_model = new Proof;
             ]
         ) ?>
 
-        <?= $form->field($model, 'status')->label(false)->hiddenInput(['value' => '1']) ?>
+        <?= $form->field($model, 'status')->label(false)->hiddenInput(['value' => '0']) ?>
 
         <?= $form->field($model, 'tanggapan')->label(false)->hiddenInput() ?>
         <div id="map">
@@ -69,10 +69,10 @@ $proof_model = new Proof;
             <?= $form->field($inf_model, 'longtitude',['options' => ['style' => 'width:49%;float:right;']])->textInput() ?>
             <?= $form->field($inf_model, 'jenis_infrastruktur', ['options' => ['style' => 'width:49%;float:left;']])->dropDownList(
                 [
-                    'jalan' => 'Jalan Raya',
-                    'gedung' => 'Gedung Pertemuan',
-                    'kantor' => 'Kantor',
-                    'jembatan' => 'Jembatan'
+                    'Jalan' => 'Jalan Raya',
+                    'Gedung' => 'Gedung Pertemuan',
+                    'Kantor' => 'Kantor',
+                    'Jembatan' => 'Jembatan'
                 ],
                 [
                     'prompt' => 'Pilih jenis infrastruktur'
@@ -111,6 +111,7 @@ $proof_model = new Proof;
 
         <?= $form->field($model, 'deskripsi')->textArea() ?>
         <?= $form->field($proof_model, 'file_path_foto')->label('Bukti Foto')->fileInput() ?>
+        <?= $form->field($proof_model, 'title_foto')->label('Judul Foto')->textInput(['maxlength' => true]) ?>
         <?= $form->field($proof_model, 'keterangan_foto')->label('Keterangan Foto')->textarea() ?>
 
         <div class="form-group">

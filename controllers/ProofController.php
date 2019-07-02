@@ -8,6 +8,7 @@ use app\models\ProofSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ProofController implements the CRUD actions for Proof model.
@@ -66,7 +67,13 @@ class ProofController extends Controller
     {
         $model = new Proof();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $file_path_foto = UploadedFile::getInstance($model, 'file_path_foto');
+            if(isset($file_path_foto->size)){
+                $file_path_foto->saveAs('uploads/'.$file_path_foto->baseName.'.'.$file_path_foto->extension);
+            }
+            $model->file_path_foto = 'uploads/'.$file_path_foto->baseName.'.'.$file_path_foto->extension;
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id_detail]);
         }
 
@@ -87,6 +94,7 @@ class ProofController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
             return $this->redirect(['view', 'id' => $model->id_detail]);
         }
 
