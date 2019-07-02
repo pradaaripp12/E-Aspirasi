@@ -18,8 +18,7 @@ $this->title = 'E-Aspirasi';
                 if ($is_admin) {
                     echo '<h2>Selamat Datang!</h2>
                     <p>Segera cek data update aspirasi masyarakat dan berikan evaluasi.
-                    </p>
-                    <p><a class="btn btn-default" href="">Cek Aspirasi &raquo;</a></p>';
+                    </p>';
                 } else {
                     echo '<h2>Selamat Datang!</h2>
 
@@ -27,9 +26,7 @@ $this->title = 'E-Aspirasi';
                     keberlangsungan negara. Sebagai penduduk wilayah Surakarta, kami memberikan fasilitas penyampaian pendapat untuk masyarakat di wilayah
                     Surakarta. Dengan adanya situs ini, kami memfasilitasi warga untuk mendukung tercapainya negara yang lebih baik melalui evaluasi tiap 
                     insfrastruktur, layanan, dan masalah keamanan.
-                    </p>
-
-                    <p><a class="btn btn-default" href="">Sampaikan Aspirasi &raquo;</a></p>';
+                    </p>';
                 }
                 ?>
             </div>
