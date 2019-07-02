@@ -42,7 +42,7 @@ class Aspiration extends \yii\db\ActiveRecord
             [['tanggal', 'id_anggota', 'id_wilayah', 'status', 'judul', 'deskripsi'], 'required'],
             [['tanggal'], 'safe'],
             [['id_wilayah', 'status'], 'integer'],
-            [['id_anggota'], 'string', 'max' => 25],
+            [['id_anggota', 'id_master', 'id_master'], 'string', 'max' => 25],
             [['judul', 'deskripsi', 'tanggapan'], 'string', 'max' => 191],
             [['id_anggota'], 'exist', 'skipOnError' => true, 'targetClass' => Member::className(), 'targetAttribute' => ['id_anggota' => 'id_anggota']],
             [['id_wilayah'], 'exist', 'skipOnError' => true, 'targetClass' => Region::className(), 'targetAttribute' => ['id_wilayah' => 'id_wilayah']],
