@@ -93,6 +93,7 @@ class AspirationController extends Controller
                     $sec_model->save();
                     break;
             }
+            
             return $this->redirect(['view', 'id' => $model->id_master]);
         }
 
