@@ -38,12 +38,12 @@ class AspirationSearch extends Aspiration
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $type = null)
     {
         $query = Aspiration::find();
 
         // add conditions that should always apply here
-
+        
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

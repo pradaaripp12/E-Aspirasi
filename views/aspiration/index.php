@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\AspirationSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Aspirations';
+$this->title = 'Laporan Kejahatan';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="aspiration-index">
@@ -21,11 +21,22 @@ $this->title = 'Aspirations';
     
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        //'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
+        'layout' => '{items}{pager}',
+        'beforeRow' => function($data) {
+
+            if (!empty($data->securityProblem)) {
+                return true;
+            }
+
+            return false;
+        },
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
-
-            'id_master',
+            [
+                'label' => 'Nomor',
+                'attribute' => 'id_master'
+            ],
             [
                 'label' => 'Jenis Kejahatan',
                 'attribute' => 'id_master',
@@ -40,13 +51,27 @@ $this->title = 'Aspirations';
             'label' => 'Wilayah',
               'attribute' =>  'id_wilayah',
               'value' => 'wilayah.nama_wilayah'
+            ],[
+                'label' => 'Status Laporan',
+                'attribute' => 'status',
+                'value' => function ($model) {
+                    switch ($model->status) {
+                        case 1: return 'Selesai';
+                        case 0: return 'Sedang di Proses';
+                    }
+                }
+            ],
+            [
+                'label' => 'Review Layanan',
+                'attribute' => 'id_master',
+                'value' => 'service.review_layanan'
             ],
             //'status',
             //'judul',
             //'deskripsi',
             //'tanggapan',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            // ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

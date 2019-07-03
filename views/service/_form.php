@@ -36,10 +36,10 @@ use app\models\Aspiration;
     <?= $form->field($model, 'jenis_layanan')->dropDownList(
         [
             'Baik' => 'Baik',
-            'biasa' => 'Biasa',
-            'tingkat' => 'Pelayanan Perlu Ditingkatkan',
-            'tidaksop' => 'Tidak Sesuai SOP',
-            'ganti' => 'Perlu Diganti',
+            'Biasa' => 'Biasa',
+            'Perlu Ditingkatkan' => 'Pelayanan Perlu Ditingkatkan',
+            'Tidak Sesuai SOP' => 'Tidak Sesuai SOP',
+            'Perlu Diganti' => 'Perlu Diganti',
         ],
         [
             'prompt' => 'Pilih Status Pelayanan'

@@ -40,7 +40,7 @@ class AspirationController extends Controller
     public function actionIndex()
     {
         $searchModel = new AspirationSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, 'kejahatan');
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -80,10 +80,6 @@ class AspirationController extends Controller
                     $inf_model->load($request);
                     $inf_model->save();
 
-                    $proof_model = new Proof();
-                    $request['Proof']['id_master'] = $model->id_master;
-                    $proof_model->load($request);
-                    $proof_model->save();
                     break;
                 case 'kejahatan':
                     $sec_model = new SecurityProblem();
@@ -94,7 +90,16 @@ class AspirationController extends Controller
                     break;
             }
             
-            return $this->redirect(['view', 'id' => $model->id_master]);
+            $proof_model = new Proof();
+            $request['Proof']['id_master'] = $model->id_master;
+            $proof_model->load($request);
+
+            $proof_model->file_path_foto = UploadedFile::getInstance($proof_model, 'file_path_foto');
+
+            $proof_model->upload();
+            $proof_model->save(false);
+
+            return $this->redirect('index.php?r=aspiration%2Fcreate');
         }
 
         return $this->render('create', [

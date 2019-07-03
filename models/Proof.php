@@ -55,6 +55,17 @@ class Proof extends \yii\db\ActiveRecord
         ];
     }
 
+    public function upload()
+    {
+        $pathFile = 'uploads/' . $this->file_path_foto->baseName . '.' . $this->file_path_foto->extension;
+
+        $this->file_path_foto->saveAs($pathFile);
+
+        $this->file_path_foto = $pathFile;
+
+        return $pathFile;
+    }
+
     /**
      * @return \yii\db\ActiveQuery
      */
