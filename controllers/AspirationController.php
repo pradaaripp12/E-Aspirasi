@@ -83,9 +83,6 @@ class AspirationController extends Controller
                     $request['Proof']['file_path_foto'] = $proof_model->file_path_foto;
                     $request['Proof']['id_master'] = $model->id_master;
                     $proof_model->load($request);
-                    
-                    var_dump($request);
-                    exit();
                     $proof_model->save();
                     break;
                 case 'kejahatan':
