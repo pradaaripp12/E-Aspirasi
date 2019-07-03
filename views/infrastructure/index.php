@@ -59,7 +59,7 @@ $this->title = 'Laporan Infrastruktur';
             ],
             
 
-            // ['class' => 'yii\grid\ActionColumn'],
+            //  ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

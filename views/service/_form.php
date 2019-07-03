@@ -23,10 +23,10 @@ use app\models\Aspiration;
 
     <?= $form->field($model, 'dinas')->dropDownList(
         [
-            'dishub' => 'Dinas Perhubungan',
-            'dklh' => 'Dinas Kesehatan dan Lingkungan Hidup',
-            'dikpol' => 'Dinas Kepolisian',
-            'dpd' => 'Dewan Perwakilan Daerah'
+            'DISHUB' => 'Dinas Perhubungan',
+            'DKLH' => 'Dinas Kesehatan dan Lingkungan Hidup',
+            'DIKPOL' => 'Dinas Kepolisian',
+            'DPD' => 'Dewan Perwakilan Daerah'
         ],
         [
             'prompt' => 'Pilih Penanggap Kejadian'

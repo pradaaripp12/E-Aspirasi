@@ -8,9 +8,10 @@ use kartik\widgets\Alert;
 use app\models\Aspiration;
 
 $curentpage = Yii::$app->controller->id ;
+$currentpageid = yii::$app->controller->action->id;
 
 $params = ucfirst($curentpage);
-// VarDumper::dump($params);
+
 // $this->params['breadcrumbs'][] = $params;
 echo Breadcrumbs::widget([
     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -47,17 +48,16 @@ $this->params['breadcrumbs'][] = ['label' => $params, 'url' => ['index']];
                     ],
 
                     [
-                        'url' => Url::toRoute('/aspiration/index'),
-                        'label' => 'Laporan',
-                        'icon' => 'tasks'
+                        'url' => Url::toRoute('/infrastructure/index'),
+                        'label' => 'Laporan Kerusakan',
+                        'icon' => 'tasks',
+                        'active' => $curentpage == 'infrastructure'
                     ],
                     [
-                        'label' => 'Help',
-                        'icon' => 'question-sign',
-                        'items' => [
-                            ['label' => 'About', 'icon'=>'info-sign', 'url'=>'#'],
-                            ['label' => 'Contact', 'icon'=>'phone', 'url'=>'#'],
-                        ],
+                        'url' => Url::toRoute('/aspiration/'),
+                        'label' => 'Laporan Kejahatan',
+                        'icon' => 'tasks',
+                        'active' => $curentpage == 'aspiration'
                     ],
                 ],
             ]);
@@ -80,7 +80,7 @@ $this->params['breadcrumbs'][] = ['label' => $params, 'url' => ['index']];
                     [
                         'url' => Url::toRoute('/infrastructure/index'),
                         'label' => 'Laporan Kerusakan',
-                        'icon' => 'tasks'
+                        'icon' => 'tasks',
                     ],
                     [
                         'url' => Url::toRoute('/aspiration/'),
@@ -91,15 +91,8 @@ $this->params['breadcrumbs'][] = ['label' => $params, 'url' => ['index']];
                     [
                         'url' => Url::toRoute('/service/create'),
                         'label' => 'Beri Nilai Pelayanan',
-                        'icon' => 'star'
-                    ],
-                    [
-                        'label' => 'Help',
-                        'icon' => 'question-sign',
-                        'items' => [
-                            ['label' => 'About', 'icon'=>'info-sign', 'url'=>'#'],
-                            ['label' => 'Contact', 'icon'=>'phone', 'url'=>'#'],
-                        ],
+                        'icon' => 'star',
+                        'active' => $curentpage == 'service'
                     ],
                 ],
             ]);
