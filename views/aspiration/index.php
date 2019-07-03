@@ -17,23 +17,31 @@ $this->title = 'Aspirations';
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Aspiration', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+    
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
             'id_master',
+            [
+                'label' => 'Jenis Kejahatan',
+                'attribute' => 'id_master',
+                'value' => 'securityProblem.jenis_kejahatan'
+            ],
             'tanggal',
-            'id_anggota',
-            'id_wilayah',
-            'status',
+            ['label' => 'Pengunggah',
+                'attribute' => 'id_anggota',
+            'value' => 'anggota.nama'
+            ],
+            [
+            'label' => 'Wilayah',
+              'attribute' =>  'id_wilayah',
+              'value' => 'wilayah.nama_wilayah'
+            ],
+            //'status',
             //'judul',
             //'deskripsi',
             //'tanggapan',

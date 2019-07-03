@@ -44,10 +44,10 @@ class Service extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_master' => 'Id Master',
-            'dinas' => 'Dinas',
-            'jenis_layanan' => 'Jenis Layanan',
-            'review_layanan' => 'Review Layanan',
+            'id_master' => 'Laporan Kejadian',
+            'dinas' => 'Dinas yang Bertindak',
+            'jenis_layanan' => 'Status Pelayanan',
+            'review_layanan' => 'Review Pelayanan',
         ];
     }
 

@@ -28,16 +28,19 @@ class Proof extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+    // public $file_path_foto;
+
     public function rules()
     {
         return [
+            [['file_path_foto'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, jpeg'],
             [['file_path_foto', 'title_foto', 'id_master'], 'required'],
             [['id_master'], 'integer'],
-            [['file_path_foto', 'title_foto', 'keterangan_foto'], 'string', 'max' => 191],
+            [['file_path_foto','title_foto', 'keterangan_foto'], 'string', 'max' => 191],
             [['id_master'], 'exist', 'skipOnError' => true, 'targetClass' => Aspiration::className(), 'targetAttribute' => ['id_master' => 'id_master']],
         ];
     }
-
     /**
      * {@inheritdoc}
      */
@@ -59,4 +62,5 @@ class Proof extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Aspiration::className(), ['id_master' => 'id_master']);
     }
+
 }

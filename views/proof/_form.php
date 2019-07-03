@@ -10,9 +10,12 @@ use yii\widgets\ActiveForm;
 
 <div class="proof-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => [
+            'enctype' => 'multipart/form-data'
+        ]]); ?>
 
-    <?= $form->field($model, 'file_path_foto')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'file_path_foto')->label('Bukti Foto')->fileInput() ?>
 
     <?= $form->field($model, 'title_foto')->textInput(['maxlength' => true]) ?>
 
