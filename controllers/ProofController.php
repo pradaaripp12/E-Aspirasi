@@ -73,7 +73,7 @@ class ProofController extends Controller
                 $file_path_foto->saveAs('uploads/'.$file_path_foto->baseName.'.'.$file_path_foto->extension);
             }
             $model->file_path_foto = 'uploads/'.$file_path_foto->baseName.'.'.$file_path_foto->extension;
-            $model->save(false);
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id_detail]);
         }
 
